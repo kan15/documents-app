@@ -159,7 +159,7 @@
                                         </span>
                                     </header>
                                     <div class="panel-body">
-                                        Panel body
+                                        <router-view></router-view>
                                     </div>
                                 </div>
                             </div>
