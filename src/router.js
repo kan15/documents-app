@@ -13,11 +13,33 @@ export default new Router({
       name: 'home',
       component: Home
     },
+    // {
+    //   path: '/dashboard',
+    //   name: 'dashboard',
+    //   component: () => import('./views/Dashboard.vue'),
+    // },
     {
       path: '/contracts',
       name: 'contracts',
+      component: () => import('./views/Contracts.vue'),
+        children: [
+          {
+            path: ':id/edit',
+            name: 'contract-form',
+            component: () => import('./views/Contract-form.vue'), props: true,
+          },
+        ]
+    },
 
-      component: () => import('./views/Contracts.vue')
-    }
+    {
+      path: '/invoices',
+      name: 'invoices',
+      component: () => import('./views/Invoices.vue')
+    },
+    {
+      path: '/acts',
+      name: 'acts',
+      component: () => import('./views/Acts.vue')
+    },
   ]
 })
